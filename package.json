@@ -1,0 +1,25 @@
+{
+  "name": "com.azitlab.cordova-plugin-badge",
+  "version": "0.0.1",
+  "description": "get the badge from ios & android when it have new push notification",
+  "cordova": {
+    "id": "com.azitlab.cordova-plugin-badge",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttquang1063750/badge.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "quangtang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttquang1063750/badge/issues"
+  },
+  "homepage": "https://github.com/ttquang1063750/badge#readme"
+}
