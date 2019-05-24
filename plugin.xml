@@ -4,24 +4,17 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Badge</name>
 
-    <!-- cordova -->
-    <engines>
-        <engine name="cordova" version=">=6.0.0" />
-        <engine name="cordova-android" version=">=4"/>
-        <engine name="cordova-plugman" version=">=4.2.0"/>
-    </engines>
-
-    <js-module name="badge" src="www/Badge.js">
-        <clobbers target="cordova.plugins.Badge"/>
+    <js-module name="Badge" src="www/Badge.js">
+        <clobbers target="Badge"/>
     </js-module>
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="Badge">
-                <param name="android-package" value="com.azitlab.cordova.plugin.Badge"/>
+                <param name="android-package" value="com.azitlab.cordova.plugin.badge.Badge"/>
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"/>
-        <source-file src="src/android/Badge.java" target-dir="src/com/azitlab/cordova/plugin/Badge"/>
+        <source-file src="src/android/Badge.java" target-dir="src/com/azitlab/cordova/plugin/badge"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">

@@ -21,19 +21,5 @@
   "bugs": {
     "url": "https://github.com/ttquang1063750/badge/issues"
   },
-  "homepage": "https://github.com/ttquang1063750/badge#readme",
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=6.0.0"
-    },
-    {
-      "name": "cordova-android",
-      "version": ">=4"
-    },
-    {
-      "name": "cordova-plugman",
-      "version": ">=4.2.0"
-    }
-  ]
+  "homepage": "https://github.com/ttquang1063750/badge#readme"
 }
