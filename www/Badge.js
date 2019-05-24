@@ -11,5 +11,5 @@ class Badge {
 }
 
 if (typeof module !== "undefined") {
-    module.exports = new Badge();
+    module.exports.Badge = new Badge();
 }
