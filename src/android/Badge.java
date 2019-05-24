@@ -15,8 +15,7 @@ public class Badge extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("getBadge")) {
-            //String message = args.getString(0);
-            String message = 'dahjkhsdfkjhsdkj dkjdkcds';
+            String message = args.getString(0);
             this.getBadge(message, callbackContext);
             return true;
         }
