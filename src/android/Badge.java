@@ -1,4 +1,4 @@
-package com.azitlab.cordova-plugin-badge;
+package com.azitlab.cordova.plugin.Badge;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
