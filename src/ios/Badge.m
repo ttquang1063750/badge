@@ -1,18 +1,21 @@
 #import "Badge.h"
 @implementation Badge
 
-- (void)getBadge:(CDVInvokedUrlCommand*)command
+- (void)getBadgeCount:(CDVInvokedUrlCommand*)command
 {
-    CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
+    int count = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:count];
+    [self.commandDelegate sendPluginResult:result callbackId:_callbackId];
+}
 
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+- (void)getUnreadNotifications:(CDVInvokedUrlCommand*)command
+{
+    #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+        [[UNUserNotificationCenter currentNotificationCenter] getDeliveredNotificationsWithCompletionHandler:^(NSArray<UNNotification *> * _Nonnull notifications) {
+            CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:notifications];
+            [self.commandDelegate sendPluginResult:result callbackId:_callbackId];
+        }];
+    #endif
 }
 
 @end

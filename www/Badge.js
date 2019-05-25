@@ -3,9 +3,15 @@ const exec = require('cordova/exec');
 class Badge {
     constructor() {}
 
-    getBadge(arg0) {
+    getBadgeCount() {
         return new Promise((success, error) => {
-            exec(success, error, 'Badge', 'getBadge', [arg0]);
+            exec(success, error, 'Badge', 'getBadgeCount', []);
+        });
+    }
+
+    getUnreadNotifications() {
+        return new Promise((success, error) => {
+            exec(success, error, 'Badge', 'getUnreadNotifications', []);
         });
     }
 }
