@@ -1,8 +1,8 @@
 package com.azitlab.cordova.plugin.badge;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 
 import org.apache.cordova.CordovaPlugin;
@@ -36,10 +36,17 @@ public class Badge extends CordovaPlugin {
         if (action.equals("getUnreadNotifications")) {
             Context context = this.cordova.getActivity();
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            List<Notification> notifications = new ArrayList<>();
+            List<JSONObject> notifications = new ArrayList<>();
             StatusBarNotification[] listStatusBar = notificationManager.getActiveNotifications();
             for (StatusBarNotification statusBar : listStatusBar) {
-                notifications.add(statusBar.getNotification());
+                Bundle bundle = statusBar.getNotification().extras;
+                JSONObject result = new JSONObject();
+                result.put("id", statusBar.getId());
+                result.put("tag", statusBar.getTag());
+                result.put("time", statusBar.getPostTime());
+                result.put("title", bundle.getString("android.title"));
+                result.put("text", bundle.getString("android.text"));
+                notifications.add(result);
             }
 
             callbackContext.success(new JSONArray(notifications));
